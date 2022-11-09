@@ -4,11 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
       // define association here
     }
@@ -21,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
-    firstName: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
       isAlpha: true
     },
-    lastName: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false,
       isAlpha: true
@@ -55,16 +51,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT ,
       allowNull: true
     },
-    tokenExpiration: {
+    token_expiration: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    isAdmin: {
+    is_admin: {
       type: DataTypes.BOOLEAN ,
       allowNull: false,
       defaultValue: '0'
     },
-    isDelete: {
+    is_delete: {
       type: DataTypes.BOOLEAN ,
       allowNull: false,
       defaultValue: '0'

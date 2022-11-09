@@ -13,12 +13,12 @@ module.exports = {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
       },
-      firstName: {
+      first_name: {
         type: DataTypes.STRING,
         allowNull: false,
         isAlpha: true
       },
-      lastName: {
+      last_name: {
         type: DataTypes.STRING,
         allowNull: false,
         isAlpha: true
@@ -47,25 +47,25 @@ module.exports = {
         type: DataTypes.TEXT ,
         allowNull: true
       },
-      tokenExpiration: {
+      token_expiration: {
         type: DataTypes.INTEGER,
         allowNull: true
       },
-      isAdmin: {
+      is_admin: {
         type: DataTypes.BOOLEAN ,
         allowNull: false,
         defaultValue: '0'
       },
-      isDelete: {
+      is_delete: {
         type: DataTypes.BOOLEAN ,
         allowNull: false,
         defaultValue: '0'
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: DataTypes.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: DataTypes.DATE
       }
