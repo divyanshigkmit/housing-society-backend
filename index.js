@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+
 app.listen({port: 5000}, async () => {
     await sequelize.authenticate();
     console.log('Database Connected!');
