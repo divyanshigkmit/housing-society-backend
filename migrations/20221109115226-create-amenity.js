@@ -19,15 +19,15 @@ module.exports = {
         type: DataTypes.FLOAT,
         allowNull: false
       },
-      isActive: {
+      is_active: {
         type: DataTypes.BOOLEAN,
         defaultValue: '0'
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: DataTypes.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: DataTypes.DATE
       }
