@@ -5,8 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     
-    static associate(models) {
+    static associate({ Booking }) {
       // define association here
+      this.hasMany(Booking, { foreignKey: 'user_id' })
     }
     toJSON() {
       return { ...this.get(), id: undefined }
