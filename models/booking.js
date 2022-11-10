@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     booking_date: {
       type: DataTypes.DATEONLY,
       allowNull: false
+    },
+    status: {
+      type:   DataTypes.ENUM,
+      values: ['approve', 'pending', 'cancel'],
+      defaultValue: 'pending'
     }
   }, {
     sequelize,
