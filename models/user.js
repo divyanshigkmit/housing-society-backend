@@ -9,9 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasMany(Booking, { foreignKey: 'user_id' })
     }
-    toJSON() {
-      return { ...this.get(), id: undefined }
-    }
   }
   User.init({
     first_name: {
@@ -64,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
+    timestamps: false,
     tableName: 'users',
     modelName: 'User',
   });
