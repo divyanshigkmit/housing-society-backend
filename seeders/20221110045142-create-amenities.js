@@ -1,8 +1,5 @@
 'use strict';
 
-const bcrypt = require('bcrypt');
-const { hash }= require("bcrypt");
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -15,13 +12,26 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('users', [{
-      first_name: 'Divyanshi',
-      last_name: 'Thakurani',
-      email: 'divyanshi@gkmit.co',
-      phone: '7568908101',
-      password: await hash('test@123',10),
-      is_admin: 'true'
+    await queryInterface.bulkInsert('amenities', [{
+      name: 'Swimming pool',
+      price: 5000,
+      is_active: 'true'
+    }, {
+      name: 'Laundry',
+      price: 3000,
+      is_active: 'true'
+    }, {
+      name: 'Spa',
+      price: 7000,
+      is_active: 'true'
+    }, {
+      name: 'Fitness center',
+      price: 4000,
+      is_active: 'true'
+    }, {
+      name: 'Squash court',
+      price: 5000,
+      is_active: 'false'
     }], {});
   },
 
@@ -32,6 +42,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('users', null, {});
+     await queryInterface.bulkDelete('amenities', null, {});
   }
 };
