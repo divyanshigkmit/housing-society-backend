@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     
     static associate({ Booking }) {
       // define association here
-      this.hasMany(Booking, { foreignKey: 'user_id' })
+      this.hasMany(Booking, { foreignKey: 'user_id', as: 'bookings' })
+    }
+    toJSON() {
+      return {...this.get(), token_expiration: undefined, is_admin: undefined, password: undefined}
     }
   }
   User.init({

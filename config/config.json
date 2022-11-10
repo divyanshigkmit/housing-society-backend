@@ -4,7 +4,13 @@
     "password": "test@123",
     "database": "housing_society",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "underscored": true,
+      "createdAt": "created_at",
+      "updatedAt": "updated_at"
+    }
+    
   },
   "test": {
     "username": "root",

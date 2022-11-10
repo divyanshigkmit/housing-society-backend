@@ -10,11 +10,11 @@ module.exports = {
         defaultValue: DataTypes.literal('uuid_generate_v4()')
       },
       user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false
       },
       amenity_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false
       },
       booking_date: {

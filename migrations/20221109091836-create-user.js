@@ -44,7 +44,7 @@ module.exports = {
         allowNull: true
       },
       token_expiration: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: true
       },
       is_admin: {
