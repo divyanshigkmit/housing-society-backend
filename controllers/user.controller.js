@@ -1,5 +1,4 @@
 const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcrypt');
 const { hash } = require("bcrypt");
 const jwt = require('jsonwebtoken');
@@ -117,21 +116,21 @@ module.exports = {
         try {
             const { email, password } = req.body;
             // check for valid request
-            const existingUser = await models.User.findOne({ where: { email: email } });
-            if (!existingUser) {
+            const user = await models.User.findOne({ where: { email: email } });
+            if (!user) {
                 return res.status(401).json({ response: 'Wrong email or password' });
             }
             // check for correct password
-            const match = await bcrypt.compareSync(password, existingUser.password)
+            const match = await bcrypt.compareSync(password, user.password)
             if (!match) {
                 return res.status(401).json({ response: 'Wrong email or password' })
             }
             // jwt token assignment
-            const jsonToken = jwt.sign({ id: existingUser, email: email }, process.env.secretKey);
+            const jsonToken = jwt.sign({ email: email }, process.env.secretKey);
             const expirationTime = (Date.now() + (1 * 60 * 60 * 1000));
             await models.User.update({ token: jsonToken, token_expiration: expirationTime }, {
                 where: {
-                    id: existingUser.id
+                    id: user.id
                 }
             })
             return res.status(200).json({ token: jsonToken });
