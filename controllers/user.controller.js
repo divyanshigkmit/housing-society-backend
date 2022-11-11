@@ -1,4 +1,3 @@
-const express = require('express');
 const bcrypt = require('bcrypt');
 const { hash } = require("bcrypt");
 const jwt = require('jsonwebtoken');
@@ -90,7 +89,7 @@ module.exports = {
 
     },
 
-    // get user details by id
+    // get user details by id API
     userDetailsById: async (req, res) => {
         try {
             // check for valid request
@@ -107,7 +106,6 @@ module.exports = {
         } catch (err) {
             return res.status(500).json({ error: 'Something went wrong!' });
         }
-
 
     },
 
