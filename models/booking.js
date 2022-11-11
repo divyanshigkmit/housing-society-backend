@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User, Amenity }) {
       // define association here
-      this.belongsTo(User, { foreignKey: 'user_id' })
+      this.belongsTo(User, { foreignKey: 'user_id', as: 'user' })
       this.belongsTo(Amenity, { foreignKey: 'amenity_id' })
     }
   }
@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     booking_date: {
       type: DataTypes.DATEONLY,
       allowNull: false
+    },
+    status: {
+      type: DataTypes.ENUM,
+      values: ['approve', 'pending', 'cancel'],
+      defaultValue: 'pending'
     }
   }, {
     sequelize,

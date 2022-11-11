@@ -5,29 +5,36 @@ module.exports = {
     await queryInterface.createTable('bookings', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.literal('uuid_generate_v4()')
       },
       user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false
       },
       amenity_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false
       },
       booking_date: {
         type: DataTypes.DATEONLY,
         allowNull: false
       },
+      status: {
+        type:   DataTypes.ENUM,
+        values: ['approve', 'pending', 'cancel'],
+        defaultValue: 'pending'
+      },
       created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.literal('CURRENT_TIMESTAMP')
       },
       updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.literal('CURRENT_TIMESTAMP')
       }
     });
   },
