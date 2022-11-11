@@ -83,10 +83,9 @@ module.exports = {
     getByStatus: async (req, res) => {
         try {
             const status = req.params.status;
-            console.log(typeof (status));
             let val;
             val = (status === 'active') ? true : false;
-            console.log(val);
+
             const amenities = await models.Amenity.findAll({
                 where: {
                     is_active: val
